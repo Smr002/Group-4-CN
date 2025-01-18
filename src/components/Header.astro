@@ -1,0 +1,170 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<header style="background-color: #01458c;">
+	<nav>
+		<h2 class="logo">
+			<img src="../public/epokaLogo.png" alt="Epoka Logo">
+		</h2>
+		<div class="internal-links">
+			<HeaderLink href="/" class="link">Group 4 Computer Network</HeaderLink>
+		</div>
+		<div class="social-links">
+			<!-- The clickable GIF -->
+			<img src="../public/idea.gif" alt="Social GIF" class="gif" id="openPopup">
+
+			<!-- Popup Content -->
+			<div class="popup-container" id="popupContainer">
+				<button class="popup-close" id="popupClose">✖</button>
+				<h2>Group Members</h2>
+				<ul>
+				  <li>
+					<strong>Student 1:</strong> Borian Llukacaj<br />
+					<strong>Student 1 ID:</strong> 02052253
+				  </li>
+				  <hr>
+				  <li>
+					<strong>Student 2:</strong> Thanas Papa<br />
+					<strong>Student 2 ID:</strong> 02052229
+				  </li>
+				  <hr>
+				  <li>
+					<strong>Student 3:</strong> Kristi Samara<br />
+					<strong>Student 3 ID:</strong>  020522119
+				  </li>
+				  <hr>
+				  <li>
+					<strong>Student 4:</strong> Irvi Rrika<br />
+					<strong>Student 4 ID:</strong>  020522
+				  </li>
+				  <hr>
+				  <li>
+					<strong>Student 5:</strong> Ermin Lilaj<br />
+					<strong>Student 5 ID:</strong>  02052213
+				  </li>
+				</ul>
+			  </div>
+			  
+		</div>
+	</nav>
+</header>
+
+<style>
+	header {
+		margin: 0;
+		padding: 0 1em;
+		background: white;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+	}
+	h2 {
+		margin: 0;
+		font-size: 1em;
+	}
+
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.logo img {
+		width: 150px;
+		height: auto;
+	}
+
+	.internal-links {
+		flex: 1;
+		text-align: center;
+	}
+
+	.internal-links .link {
+		color: aliceblue;
+		font-size: 1.2em;
+		text-decoration: none;
+		font-weight: bold;
+		padding: 5px 15px;
+		border-radius: 5px;
+		transition: background-color 0.3s ease;
+	}
+
+	.internal-links .link:hover {
+		background-color: rgba(255, 255, 255, 0.2);
+	}
+
+	.social-links {
+		display: flex;
+		align-items: center;
+		position: relative;
+	}
+
+	.social-links .gif {
+		width: 50px;
+		height: auto;
+		border-radius: 5px;
+		transition: transform 0.3s ease;
+		cursor: pointer;
+	}
+
+	.social-links .gif:hover {
+		transform: scale(1.1);
+	}
+
+	.popup-container {
+		display: none;
+		position: absolute; /* Position relative to the GIF */
+		top: 60px; /* Adjust this value based on the height of the GIF */
+		left: -270px; /* Increased value to move the popup more to the right */
+		width: 300px;
+		background-color: #ffffff;
+		border-radius: 10px;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+		z-index: 1000;
+		padding: 20px;
+		text-align: center;
+	}
+
+	.popup-container::before {
+		content: '';
+		position: absolute;
+		top: -10px; /* Adjust for arrow positioning */
+		left: 40px; /* Adjust arrow alignment with the popup */
+		border-width: 10px;
+		border-style: solid;
+		border-color: transparent transparent #ffffff transparent;
+	}
+
+
+	.popup-close {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		background: none;
+		border: none;
+		font-size: 16px;
+		cursor: pointer;
+	}
+
+	.popup-container.active {
+		display: block;
+	}
+</style>
+
+<script defer>
+	// Get references to elements
+	const openPopup = document.getElementById('openPopup');
+	const popupContainer = document.getElementById('popupContainer');
+	const popupClose = document.getElementById('popupClose');
+
+	// Open popup when clicking the GIF
+	openPopup.addEventListener('click', () => {
+		// Toggle the active class to show/hide the popup
+		popupContainer.classList.toggle('active');
+	});
+
+	// Close popup when clicking the close button
+	popupClose.addEventListener('click', () => {
+		popupContainer.classList.remove('active');
+	});
+</script>

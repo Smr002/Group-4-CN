@@ -1,0 +1,29 @@
+---
+const today = new Date();
+---
+
+<footer>
+	&copy; {today.getFullYear()} GROUP-4. All rights reserved.
+	<div class="social-links">
+		<img src="../public/idea.gif" alt="Social GIF" class="gif" id="openPopup">
+	</div>
+</footer>
+<style>
+	footer {
+		padding: 2em 1em 6em 1em;
+		background: linear-gradient(var(--gray-gradient)) no-repeat;
+		color: rgb(var(--gray));
+		text-align: center;
+	}
+	.social-links .gif {
+		width: 50px;
+		height: auto;
+		border-radius: 5px;
+		transition: transform 0.3s ease;
+		cursor: pointer;
+	}
+
+	.social-links .gif:hover {
+		transform: scale(1.1);
+	}
+</style>

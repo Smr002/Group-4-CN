@@ -1,0 +1,300 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title="ComputerNetwork" description="Group 4" />
+    <link rel="icon" type="image/gif" href="../public/idea.gif" />
+  </head>
+
+  <body>
+    <Header />
+    <main>
+      <h1>
+        🧑‍🚀 Virtual Networking and <br /> Client-Server Architecture Application Deployment!
+      </h1>
+
+      <!-- Table of Contents -->
+      <div class="toc-container">
+        <div class="toc-item">
+          <a href="#intro" class="title">Introduction</a>
+          <span class="dots"></span>
+          <span class="page-number">1</span>
+        </div>
+        <div class="toc-item">
+          <a href="#concepts" class="title">Concepts and Terms</a>
+          <span class="dots"></span>
+          <span class="page-number">2</span>
+        </div>
+        <div class="toc-item">
+          <a href="#connectivity" class="title"
+            >Network Connectivity and Service Validation</a
+          >
+          <span class="dots"></span>
+          <span class="page-number">3</span>
+        </div>
+        <div class="toc-item">
+          <a href="#wireshark" class="title">Wireshark Analysis</a>
+          <span class="dots"></span>
+          <span class="page-number">5</span>
+        </div>
+        <div class="toc-item">
+          <a href="#topology" class="title">Virtual Network Topology</a>
+          <span class="dots"></span>
+          <span class="page-number">6</span>
+        </div>
+        <div class="toc-item">
+          <a href="#summary" class="title">Summary and Conclusions</a>
+          <span class="dots"></span>
+          <span class="page-number">7</span>
+        </div>
+      </div>
+      <br />
+      <!-- Content Sections -->
+      <div id="intro" class="intro">
+        <h4>-Introduction-</h4>
+        <p>
+          This documentation details the implementation and analysis of a
+          virtual networking project focused on client-server architecture
+          application deployment. The project demonstrates practical
+          applications of computer networking concepts, incorporating virtual
+          machine configurations, network protocols, and performance analysis.
+          Through this implementation, we explore the integration of various
+          networking components while establishing a functional client-server
+          environment within a virtualized infrastructure. The project make of
+          use of multiple aspects of modern networking, including virtual
+          machine configuration, network protocol implementation, and system
+          performance monitoring. By utilizing tools such as Wireshark for
+          packet analysis and Cisco Packet Tracer for network topology
+          visualization, we provide comprehensive insights into the network's
+          behavior and performance characteristics.
+        </p>
+      </div>
+
+      <hr />
+
+      <div id="concepts" class="concepts">
+        <h4>-Concepts and Terms-</h4>
+        <p>
+          <strong>NAT:</strong><br />Network Address Translation is a service
+          that enables private IP networks to use the internet and cloud. NAT
+          translates private IP addresses in an internal network to a public IP
+          address before packets are sent to an external network.
+
+          <br /><strong>A subnet: </strong>
+          <br /> A subnet is like a smaller group within a large network. It is a
+          way to split a large network into smaller networks so that devices present
+          in one network can transmits data more easily. For example, in a company,
+          different departments can each have their own subnet, keeping their data
+          traffic separate from others. Subnet makes the network faster and easier
+          to manage and also improves the security of the network.
+
+          <br /><strong>2xx.xx.0/24:</strong>
+          <br /> This refers to the IP address format that will be used in the virtual
+          network xx will be replaced with the group number so in our case it will
+          be 24.4.4.0/24 where /24 refers to the allocated bits for network IP.
+
+          <br /><strong>DHCP:</strong>
+          <br /> DHCP is a network protocol used to automate the process of assigning
+          IP addresses and other network configuration parameters to devices (such
+          as computers, smartphones, and printers) on a network. Instead of manually
+          configuring each device with an IP address, DHCP allows devices to connect
+          to a network and receive all necessary network information, like IP address,
+          subnet mask, default gateway, and DNS server addresses, automatically from
+          a DHCP server.
+
+          <br /><strong>DNS-The Domain Name System:</strong><br /> (DNS) is like
+          the internet’s phone book. It helps you find websites by translating easy-to-remember
+          names (like www.example.com) into the numerical IP addresses (like 192.0.2.1)
+          that computers use to locate each other on the internet. Without DNS, you
+          would have to remember long strings of numbers to visit your favorite websites.Domain
+          Name System (DNS) is a hostname used for IP address translation services.
+          DNS is a distributed database implemented in a hierarchy of name servers.
+          It is an application layer protocol for message exchange between clients
+          and servers. It is required for the functioning of the Internet.
+
+          <br /><strong>Nginx:</strong>
+          <br />It is an open-source software designed for maximum performance
+          and stability. Nginx uses the Master-Slave architecture, where we have
+          a master who reroutes our request to any of the workers under it by
+          distributing the load on the server, then the Proxy cache is looked
+          for faster response, else after failing to do So the webpage is loaded
+          from the memory itself. An image demonstration will help to understand
+          this structure more clearly.
+
+          <br /><strong>Apache:</strong>
+          <br />Apache is a powerful and flexible web server widely used for
+          hosting websites. It is an open-source software which means that we
+          can access and make changes to its code and mold it according to our
+          preference.Apache follows a modular architecture where the core server
+          is augmented by a myriad of modules, each responsible for specific
+          functionalities. The modular design allows administrators to enable or
+          disable modules based on their needs, optimizing resource usage.
+
+          <br /><strong> OpenSSH Server:</strong>
+          <br />OpenSSH is a freely available version of the Secure Shell (SSH)
+          protocol family of tools. Traditional tools, such as telnet or rcp,
+          are insecure and transmit the user’s password in cleartext when used.
+          OpenSSH provides a server daemon and client tools to facilitate
+          secure, encrypted, remote control and file transfer operations,
+          effectively replacing the legacy tools.The OpenSSH server component,
+          sshd , listens continuously for client connections from any of the
+          client tools. When a connection request occurs, sshd sets up the
+          correct connection depending on the type of client tool connecting.
+          For example, if the remote computer is connecting with the SSH client
+          application, the OpenSSH server sets up a remote control session after
+          authentication. If a remote user connects to an OpenSSH server with
+          scp, the OpenSSH server daemon initiates a secure copy of files
+          between the server and client after authentication.OpenSSH can use
+          many authentication methods, including plain password, public key, and
+          Kerberos tickets.
+
+          <br /><strong> OpenSSH Client: </strong>
+          <br />OpenSSH Client is a command-line tool used to establish secure,
+          encrypted connections between devices over a network using the SSH
+          protocol. It allows users to remotely access and manage systems,
+          transfer files securely, and execute commands on remote machines. It
+          is part of the OpenSSH suite, which is widely used for secure
+          communication and administration in both personal and enterprise
+          environments.
+
+          <br /><strong>Google Chrome: </strong>
+          <br />Google Chrome is a cross-platform web browser developed by
+          Google. It is designed to provide fast, secure, and user-friendly
+          access to the internet. Built on the open-source Chromium project,
+          Chrome supports modern web technologies, extensions, and features like
+          tabbed browsing, synchronization across devices, and a built-in Google
+          search engine. It is widely used on operating systems such as Windows,
+          macOS, Linux, Android, and iOS.
+
+          <br /><strong>Mozilla Firefox:</strong>
+          <br />Mozilla Firefox is a free and open-source web browser developed
+          by the Mozilla Foundation. Known for its emphasis on privacy,
+          security, and user customization, Firefox supports modern web
+          standards and features, including tabbed browsing, private browsing,
+          and a wide range of extensions. It is available across multiple
+          platforms, including Windows, macOS, Linux, Android, and iOS, and is
+          widely regarded for its speed and commitment to user data protection.
+        </p>
+      </div>
+
+      <!-- Add more sections as needed -->
+      <div id="connectivity">
+        <h4>-Network Connectivity and Service Validation-</h4>
+        <p><strong>Speedtest from desktop</strong></p>
+		<img src="../../public/connectivity1.png" alt="connectivity1.png">
+		<p>This is a simple speedtest conducted on speedtest.net, showing the virtual network is capable of providing an internet connection successfully.</p><br>
+		<p><strong>Throughput between client and server:</strong></p>
+		<img src="../../public/connectivity2.png" alt="connectivity1.png">
+		<img src="../../public/connectivity3.png" alt="connectivity1.png">
+		<p>This was done using iperf3, using iperf3 -s on the server in order to listen for incoming requests, and iperf -c <domain> from the client to send requests to the server.
+
+			Throughput between both end hosts and google.com
+			</p><br>
+			<p><strong>Server:</strong></p>
+
+		<img src="../../public/connectivity4.png" alt="connectivity1.png">
+		<p><strong>Client:</strong></p>
+		<img src="../../public/connectivity5.png" alt="connectivity1.png">
+		<p>
+			This was done using the ping command, which sends ICMP requests to the given host and shows packets received from the host along with the RTT.
+			</p><br>
+			<p><strong>OpenSSH-server:</strong></p>
+		<img src="../../public/connectivity6.png" alt="connectivity1.png">
+		<p>This shows the status of the sshd on the server, showing it is listening for connections.</p><br>
+		<p>	<strong>OpenSSH Client:</strong></p>
+		<img src="../../public/connectivity7.png" alt="connectivity1.png">
+		<p>This shows that we have connected to the server from the client, along with the icons of both operating systems proving that we have indeed connected to another machine.</p><br>
+		<p><strong>
+			Nslookup of both:
+			</strong></p>
+		<img src="../../public/connectivity8.png" alt="connectivity1.png">
+		<p><strong>IPs of both:</strong></p>
+		<img src="../../public/connectivity9.png" alt="connectivity1.png">
+		<p><strong>Ifconfig of both:</strong></p>
+		<img src="../../public/connectivity10.png" alt="connectivity1.png">
+
+
+      </div>
+
+      <div id="wireshark">
+        <h4>-Wireshark Analysis-</h4>
+        <p><strong>TCP three-way handshake:</strong></p>
+		<img src="../../public/wireshark1.png" alt="wireshark photo">
+		<p><strong>DNS request response:</strong></p>
+		<img src="../../public/wireshark2.png" alt="wireshark photo">
+		<p><strong>HTTP request:</strong></p>
+		<img src="../../public/wireshark3.png" alt="wireshark photo">
+
+      </div>
+
+      <div id="topology">
+        <h4>-Virtual Network Topology-</h4>
+        <p><strong>Config of the network:</strong></p>
+		<img src="../../public/topology1.png" alt="topology photo">
+		<img src="../../public/topology2.png" alt="topology photo">
+		<p><strong>Network config of Server (Arch uses systemd-network for the config, so it looks different from the /etc/netplan/50-cloud-init.yaml but it should be the same)</strong></p>
+		<img src="../../public/topology3.png" alt="topology photo">
+		<img src="../../public/topology4.png" alt="topology photo">
+		<img src="../../public/topology5.png" alt="topology photo">
+		<img src="../../public/topology6.png" alt="topology photo">
+		<img src="../../public/topology7.png" alt="topology photo">
+
+
+
+      </div>
+
+	  <div id="summary">
+		<h4>-Summary and Conclusions-</h4>
+		<p>
+		  In this project, we created a virtual network using VMware, consisting of two virtual machines: a 
+		  <strong>Client</strong> running <strong>Ubuntu Desktop</strong> as the Guest OS and a 
+		  <strong>Server</strong> running <strong>Arch Linux</strong> as the Guest OS. A virtual 
+		  <strong>NAT network</strong> was set up and configured with the IP range <code>24.4.4.0</code> 
+		  and a subnet mask of <code>255.255.255.0</code>. 
+		  <strong>DHCP</strong> was enabled to facilitate network configuration, and the NAT network was 
+		  connected to both virtual machines, enabling communication between them.
+		</p>
+		<p>
+		  The Server was assigned a <strong>static IP address</strong> (<code>24.4.4.100/24</code>) 
+		  with <code>8.8.8.8</code> as the DNS server. The gateway was set to <code>24.4.4.2</code>, which 
+		  corresponds to the IP address of the virtual router. Several essential packages were installed 
+		  using the Arch package manager (<code>pacman</code>), including <code>nginx</code>, 
+		  <code>net-tools</code>, <code>traceroute</code>, <code>openssh</code>, and <code>iperf3</code>. 
+		  Both the <code>nginx</code> and <code>openssh</code> services were enabled to ensure they remained 
+		  active for testing connections with the Client and activated during startup of the server: 
+		  <code>sudo systemctl enable &lt;service&gt; && sudo systemctl start &lt;service&gt;</code>.
+		</p>
+		<p>
+		  The Client, on the other hand, was assigned a <strong>dynamic IP address</strong> through the 
+		  DHCP server, making its address subject to change. Packages were installed using the Ubuntu 
+		  <code>apt</code> package manager, including <code>net-tools</code>, <code>ssh</code>, 
+		  <code>traceroute</code>, <code>wireshark</code>, and <code>iperf3</code>.
+		</p>
+		<p>The connection between the Client and the Server was tested using these tools. Specifically:</p>
+		<ul>
+		  <li>
+			<strong>SSH</strong> was used to establish terminal access to the Server.
+		  </li>
+		  <li>
+			<strong>Traceroute</strong> provided insights into the routers traversed during a request.
+		  </li>
+		  <li>
+			<strong>Wireshark</strong> was employed to analyze the contents of packets exchanged in the 
+			client-server setup.
+		  </li>
+		  <li>
+			<strong>Iperf3</strong> was utilized to measure network throughput and round-trip time (RTT).
+		  </li>
+		</ul>
+	  </div>
+	  
+    </main>
+    <Footer />
+  </body>
+</html>
